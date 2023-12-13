@@ -11,7 +11,7 @@
 	<groupId>com.mariaj</groupId>
 	<artifactId>onestopmedishop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>onestopmedishop</name>
 	<description>Capstone Project</description>
 	<properties>
