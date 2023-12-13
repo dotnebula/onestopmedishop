@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.mariaj.onestopmedishop.dto.ExceptionResponseDto;
 
-
 @ControllerAdvice
 public class GobalExceptionHandler {
 

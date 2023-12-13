@@ -10,13 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "shipment_details")
 @SequenceGenerator(name="shipment_seq", sequenceName = "shipment_seq", initialValue =1, allocationSize = 1 )

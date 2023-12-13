@@ -28,7 +28,7 @@ pipeline {
             steps {
                 echo '----------------- This is a build docker image phase ----------'
                 sh '''
-                    docker image build -t ecom-webservice .
+                    docker image build -t onestopmedishop-web .
                 '''
             }
         }
@@ -37,13 +37,13 @@ pipeline {
             steps {
                 echo '----------------- This is a docker deploment phase ----------'
                 sh '''
-                 (if  [ $(docker ps -a | grep ecom-webservice | cut -d " " -f1) ]; then \
-                        echo $(docker rm -f ecom-webservice); \
-                        echo "---------------- successfully removed ecom-webservice ----------------"
+                 (if  [ $(docker ps -a | grep onestopmedishop-web | cut -d " " -f1) ]; then \
+                        echo $(docker rm -f onestopmedishop-web); \
+                        echo "---------------- successfully removed onestopmedishop-web ----------------"
                      else \
                     echo OK; \
                  fi;);
-            docker container run  --network ecom-webapp-network --restart always --name ecom-webservice -p 8081:8081 -d ecom-webservice
+            docker container run  --network onestopmedishop-web-network --restart always --name onestopmedishop-web -p 8081:8081 -d onestopmedishop-web
             '''
             }
         }

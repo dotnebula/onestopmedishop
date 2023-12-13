@@ -16,18 +16,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-/**
- * Product order model
- * 
- * @author khanw
- */
+
+
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "orders")
 @SequenceGenerator(name = "order_seq", sequenceName = "order_seq", initialValue = 1, allocationSize = 1)

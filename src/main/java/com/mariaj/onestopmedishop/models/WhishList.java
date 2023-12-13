@@ -9,13 +9,9 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "whishlist_details")
 @SequenceGenerator(name="whishlist_seq", sequenceName = "whishlist_seq", initialValue =1, allocationSize = 1 )

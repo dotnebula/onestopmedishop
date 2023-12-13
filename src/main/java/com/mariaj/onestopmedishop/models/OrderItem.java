@@ -8,18 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-/**
- * Order item model
- * 
- * @author khanw
- */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "order_items")
 @SequenceGenerator(name="order_item_seq", sequenceName = "order_item_seq", initialValue =1, allocationSize = 1 )

@@ -9,13 +9,9 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "cart_details")
 @SequenceGenerator(name="cart_seq", sequenceName = "cart_seq", initialValue =1, allocationSize = 1 )
