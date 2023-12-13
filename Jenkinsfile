@@ -43,7 +43,7 @@ pipeline {
                      else \
                     echo OK; \
                  fi;);
-            docker container run  --network onestopmedishop-web-network --restart always --name onestopmedishop-web -p 8081:8081 -d onestopmedishop-web
+            docker container run  --network onestopmedishop-web-network --restart always --name onestopmedishop-web -p 8083:8083 -d onestopmedishop-web
             '''
             }
         }
