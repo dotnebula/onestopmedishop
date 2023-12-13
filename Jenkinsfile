@@ -28,7 +28,7 @@ pipeline {
             steps {
                 echo '----------------- This is a build docker image phase ----------'
                 sh '''
-                    docker image build -t onestopmedishop-web .
+                    docker image build -t onestopmedishop .
                 '''
             }
         }
@@ -37,13 +37,13 @@ pipeline {
             steps {
                 echo '----------------- This is a docker deployment phase ----------'
                 sh '''
-                 (if  [ $(docker ps -a | grep onestopmedishop-web | cut -d " " -f1) ]; then \
-                        echo $(docker rm -f onestopmedishop-web); \
-                        echo "---------------- successfully removed onestopmedishop-web ----------------"
+                 (if  [ $(docker ps -a | grep onestopmedishop | cut -d " " -f1) ]; then \
+                        echo $(docker rm -f onestopmedishop); \
+                        echo "---------------- successfully removed onestopmedishop ----------------"
                      else \
                     echo OK; \
                  fi;);
-            docker container run  --network onestopmedishop-web-network --restart always --name onestopmedishop-web -p 8083:8083 -d onestopmedishop-web
+            docker container run  --network onestopmedishop-web-network --restart always --name onestopmedishop -p 8083:8083 -d onestopmedishop
             '''
             }
         }
