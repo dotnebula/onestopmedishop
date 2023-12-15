@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mariaj.onestopmedishop.dto.AuthResponseDto;
 import com.mariaj.onestopmedishop.dto.LoginRequestDto;
 import com.mariaj.onestopmedishop.dto.ResponseDto;
-import com.mariaj.onestopmedishop.dto.UserResponseDto;
+//import com.mariaj.onestopmedishop.dto.UserResponseDto;
 import com.mariaj.onestopmedishop.models.Admin;
 import com.mariaj.onestopmedishop.models.User;
 import com.mariaj.onestopmedishop.services.AdminService;
@@ -42,10 +42,10 @@ public class AuthController {
 	@PostMapping("/users/login")
 	public ResponseDto useLogin(@RequestBody LoginRequestDto login){
 		User user = userService.validateLogin(login);
-		UserResponseDto userResponseDto = new UserResponseDto();
+		AuthResponseDto userResponseDto = new AuthResponseDto();
 		userResponseDto.setId(user.getUserId());
 		userResponseDto.setAuthToken(user.getAuthToken());
-		userResponseDto.setUserName(user.getUserName());
+		userResponseDto.setAdminUserName(user.getUserName());
 //		authResponseDto.setFirstName(user.getFirstName());
 //		authResponseDto.setLastName(user.getLastName());
 		return new ResponseDto("User loggedIn sucessfully.", new Date(), HttpStatus.OK.name(), userResponseDto);
