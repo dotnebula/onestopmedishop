@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mariaj.onestopmedishop.dto.AuthResponseDto;
 import com.mariaj.onestopmedishop.dto.LoginRequestDto;
 import com.mariaj.onestopmedishop.dto.ResponseDto;
+import com.mariaj.onestopmedishop.dto.UserResponseDto;
 import com.mariaj.onestopmedishop.models.Admin;
 import com.mariaj.onestopmedishop.models.User;
 import com.mariaj.onestopmedishop.services.AdminService;
@@ -35,18 +36,19 @@ public class AuthController {
 		authResponseDto.setAdminUserName(admin.getAdminUserName());
 //		authResponseDto.setFirstName(admin.getFirstName());
 //		authResponseDto.setLastName(admin.getLastName());
-		return new ResponseDto("Admin user loggedIn sucessfully.", new Date(), HttpStatus.OK.name(), authResponseDto);
+		return new ResponseDto("Admin loggedIn sucessfully.", new Date(), HttpStatus.OK.name(), authResponseDto);
 	}
 	
 	@PostMapping("/users/login")
 	public ResponseDto useLogin(@RequestBody LoginRequestDto login){
 		User user = userService.validateLogin(login);
-		AuthResponseDto authResponseDto = new AuthResponseDto();
-		authResponseDto.setId(user.getUserId());
-		authResponseDto.setAuthToken(user.getAuthToken());
+		UserResponseDto userResponseDto = new UserResponseDto();
+		userResponseDto.setId(user.getUserId());
+		userResponseDto.setAuthToken(user.getAuthToken());
+		userResponseDto.setUserName(user.getUserName());
 //		authResponseDto.setFirstName(user.getFirstName());
 //		authResponseDto.setLastName(user.getLastName());
-		return new ResponseDto("User loggedIn sucessfully.", new Date(), HttpStatus.OK.name(), authResponseDto);
+		return new ResponseDto("User loggedIn sucessfully.", new Date(), HttpStatus.OK.name(), userResponseDto);
 	}
 	
 }

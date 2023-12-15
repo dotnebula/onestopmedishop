@@ -22,8 +22,7 @@ public class UserService {
 	UserRepository userRepository;
 	
 	BCryptPasswordEncoder passwordEncoder ;
-	
-	// Get all Users
+
 	public Page<User> getUsers(int page, int size, String sort, String sortOrder) {
 		Sort.Direction direction = sortOrder.equalsIgnoreCase("ASC") ? Sort.Direction.ASC : Sort.Direction.DESC;
 		Sort sortBy = Sort.by(direction,sort);
@@ -31,12 +30,10 @@ public class UserService {
 		return userRepository.findAll(pageable);
 	}
 	
-	// Get one User by UserId
 	public User getUser(int UserId) {
 		return userRepository.findById(UserId).get();
 	}
 	
-	// Add User
 	public User addUser(User user) {
 		if(userRepository.existsByEmail(user.getEmail()))
 			throw new BadRequestException("User with this email address already exists.");
@@ -44,8 +41,7 @@ public class UserService {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		return userRepository.save(user);
 	}
-	
-	// Update User
+
 	public User updateUser(User user) {
 		if(user.getUserId() <=0 )
 			throw new BadRequestException("UserId cannot be null or empty.");
@@ -57,8 +53,7 @@ public class UserService {
 			throw new NotFoundException("User does not exist with provided userId.");
 
 	}
-	
-	// Delete User
+
 	public void deleteUser(int userId) {
 		if(userId <=0 )
 			throw new BadRequestException("adminId id cannot be null or empty.");

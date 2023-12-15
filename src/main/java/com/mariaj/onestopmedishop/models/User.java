@@ -38,6 +38,9 @@ public class User {
 	@Column(name="last_name")
 	private String lastName;
 	
+	@Column(name="user_name")
+	private String userName;
+	
 	@Column(name="login_type_identifier")
 	private int loginType;
 	
@@ -87,15 +90,16 @@ public class User {
 		
 	}
 
-	public User(int userId, String email, String password, String firstName, String lastName, int loginType,
-			String authToken, Date createdAt, Date updatedAt, String street, String city, String state, String country,
-			int zipcode, String image, Long contact) {
+	public User(int userId, String email, String password, String firstName, String lastName, String userName,
+			int loginType, String authToken, Date createdAt, Date updatedAt, String street, String city, String state,
+			String country, int zipcode, String image, Long contact) {
 		super();
 		this.userId = userId;
 		this.email = email;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.userName = userName;
 		this.loginType = loginType;
 		this.authToken = authToken;
 		this.createdAt = createdAt;
@@ -147,6 +151,14 @@ public class User {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public int getLoginType() {
@@ -236,6 +248,8 @@ public class User {
 	public void setContact(Long contact) {
 		this.contact = contact;
 	}
+
+	
 
 
 }
